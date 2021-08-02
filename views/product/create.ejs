@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/header.ejs')%>
+    <link rel="stylesheet" href="/css/cadastroproduto.css">
+    <title>Cadastro de produto | Supermarket</title>
+</head>
+<body>
+
+    <%- include ('../partials/navbar.ejs') %> <br>
+   
+    <div class="container"> 
+
+        <div class="card">
+
+            <div class="card-header">     
+                <h4> Cadastro de produto </h4>
+            </div>
+
+        <form action="/product/create" method="POST">
+
+            <div class="card-body">     
+                
+            <label>Categoria</label><br>
+            <select name="category" class="form-control">
+
+                <% categories.forEach(category => { %>
+
+                <option value="<%= category.id%>"><%= category.name %></option>
+
+                <% }) %>
+
+            </select>    
+
+            <label>Nome do produto</label><br>
+            <input type="text" name="productName" class="form-control"> <br>
+
+            <label>Preço</label><br>
+            <input type="text" name="price" class="form-control"> <br>
+            <button class="btn btn-success"> Cadastrar </button>
+           
+            </div>
+        </form> 
+    </div>  
+    
+</body>
+    <%- include ('../partials/footer.ejs') %>
+</html>

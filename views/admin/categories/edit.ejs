@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar categoria</title>
+    <%- include ('../../partials/header.ejs') %>
+</head>
+<body>
+    <%- include ('../../partials/navbar.ejs') %>
+
+    <div class="container"> 
+
+        <div class="card">
+
+            <div class="card-header">     
+                <h4> Edição de categoria </h4>
+            </div>
+
+        <form action="/admin/categories/edit" method="POST">
+
+            <div class="card-body">     
+                
+            <label>Nome da categoria</label><br>
+            <input type="text" name="name" class="form-control" value="<%= category.name %>"> <br>
+            <input type="hidden" name="id" value="<%= category.id %>"> <br>
+            <button class="btn btn-success"> Editar </button>
+           
+            </div>
+        </form> 
+    </div> 
+
+</body>
+    <%- include ('../../partials/footer.ejs') %>
+</html>

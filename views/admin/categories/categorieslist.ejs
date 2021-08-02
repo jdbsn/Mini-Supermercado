@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('../../partials/header.ejs')%>
+    <link rel="stylesheet" href="/css/productlist.css">
+    <title>Lista de categorias | Supermarket</title>
+</head>
+<body>
+    
+    <%- include ('../../partials/navbar.ejs') %>
+
+    <div class="container"> 
+
+        <table class="table table-bordered">
+    
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Slug </th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
+                </tr>
+            </thead>
+    
+            <% categories.forEach (categories => { %>
+
+                <tr>
+                    <th><%= categories.name %></th>
+                    <th><%= categories.slug %></th>
+                    <th> <a href="/admin/categories/edit/<%= categories.id %>" class="btn btn-warning">Editar</a></th>
+                    <th>
+                        <form action="/admin/categories/deletecategory" method="POST" onsubmit="confirmacao(event, this)">
+                            <input type="hidden" name="id" value="<%= categories.id%>">
+                            <button class="btn btn-danger">Apagar</button>
+                        </form>
+                    </th>
+                </tr>
+                
+            <% }) %>
+
+        </table>
+
+        <a href="/admin/categories/createcategory">Criar categoria</a><br>
+        <a href="/">Voltar</a>
+
+    </div>
+
+</body>
+    <% include ('../../partials/footer.ejs') %>
+
+</html>
+
+<script>
+    function confirmacao (event, form) {
+        event.preventDefault();
+            var decision = confirm("Confirma?");
+        if (decision) {
+        form.submit();
+        }
+    }
+</script>
