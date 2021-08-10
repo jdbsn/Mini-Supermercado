@@ -28,7 +28,7 @@
     
             </thead>
 
-            <% products.forEach(products => { %>
+            <% result.products.rows.forEach(products => { %>
 
                 <tr>
                     <th><%= products.name %></th>
@@ -49,14 +49,24 @@
     
         </table>
     
+
         <div id="opcoes">
             <a href="/product/create">Cadastrar outro produto</a>
             <a href="/">Voltar para a tela inicial</a>
         </div>
 
- 
-            <a style="float:right" href="/product/productslist/page/2"> Próxima > </a>
+        <div id="opcoes">
+            
+            <% if (result.page > 2) { %>
+                <a href="/product/productslist/page/<%= result.page - 1 %>"> < Anterior</a>
+            <% } else if (result.page == 2) { %>
+                <a href="/product/productslist"> < Anterior</a>
+            <% } %>
 
+            <% if (result.next == false) { %>    
+            <a href="/product/productslist/page/<%= result.page + 1%>"> Próxima ></a>
+            <% } %>
+        </div>
 
     </div>
 

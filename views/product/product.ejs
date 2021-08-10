@@ -15,11 +15,15 @@
 
         <br>
         <div class="card">
-                       <div class="card-body">
-                <%= product.id %>. Produto: <%= product.name %>
+                       <div class="card-header">
+                <%= product.name %>
             </div>
 
-            <div class="card-footer">
+            <div class="card-body">
+                Preço: R$<%= product.price %>
+            </div>
+            <hr>
+            <div class="card-body">
                 Preço: R$<%= product.price %>
             </div>
 

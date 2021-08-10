@@ -1,5 +1,4 @@
 const express = require('express');
-const { route } = require('../category/CategoryController');
 const router = express.Router();
 
 const slugify = require('slugify');
@@ -33,6 +32,7 @@ router.post('/product/create', (req, res) => {
 
 router.get('/product/productslist', (req, res) => {
     Product.findAll({ 
+        limit: 7,
         include: [{model: Category}]
     }).then(products => {
         res.render("product/productslist", {
@@ -109,6 +109,42 @@ router.post('/product/edit', (req, res) => {
     }).then(()=> {
         res.redirect('/product/productslist')
     });
+});
+
+router.get('/product/productslist/page/:page', (req, res) => {
+    var page = req.params.page;
+    var offset = 0;
+
+    if (isNaN(page) || page == 1) {
+        offset = 0
+    } else {
+        offset = (parseInt(page) - 1) * 7;
+    }
+
+    Product.findAndCountAll({
+        limit: 7,
+        offset: offset,
+        include: [{model: Category}]  
+    }).then(products => {
+        var next;
+        if (offset + 7 >= products.count){
+            next = true;
+        } else {
+            next = false;
+        }
+
+        var result = {
+            page: parseInt(page),
+            next: next,
+            products: products
+        }
+
+        Category.findAll().then(categories => {
+            res.render('product/page', {result: result, categories: categories})
+        });
+
+    });
+
 });
 
 module.exports = router;
