@@ -92,6 +92,8 @@ router.get('/product/edit/:id', (req, res) => {
             Category.findAll().then(categories => {
                 res.render('product/edit', {product: product, categories: categories});
             })
+        } else {
+            res.redirect('/');
         }
     });
 });
@@ -116,7 +118,7 @@ router.get('/product/productslist/page/:page', (req, res) => {
     var offset = 0;
 
     if (isNaN(page) || page == 1) {
-        offset = 0
+        offset = 0;
     } else {
         offset = (parseInt(page) - 1) * 7;
     }
@@ -128,9 +130,9 @@ router.get('/product/productslist/page/:page', (req, res) => {
     }).then(products => {
         var next;
         if (offset + 7 >= products.count){
-            next = true;
-        } else {
             next = false;
+        } else {
+            next = true;
         }
 
         var result = {
@@ -139,9 +141,7 @@ router.get('/product/productslist/page/:page', (req, res) => {
             products: products
         }
 
-        Category.findAll().then(categories => {
-            res.render('product/page', {result: result, categories: categories})
-        });
+            res.render('product/page', {result: result})
 
     });
 

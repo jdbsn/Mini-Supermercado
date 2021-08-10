@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias</title>
     <%- include ('../../partials/header.ejs') %>
+    <link rel="stylesheet" href="/css/createcategory.css"> 
 </head>
 <body>
     <%- include ('../../partials/navbar.ejs') %>
 
     <div class="container"> 
-
+        
+        <br>
         <div class="card">
 
-            <div class="card-header">     
-                <h4> Cadastro de categoria </h4>
+            <div class="card-header">
+                <h4 style="float:left"> Cadastro de categoria </h4>
+                <a style="float:right" href="/">Voltar</a>
             </div>
 
         <form action="/admin/categories/createcategory" method="POST">

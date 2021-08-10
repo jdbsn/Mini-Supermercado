@@ -54,19 +54,16 @@
             <a href="/product/create">Cadastrar outro produto</a>
             <a href="/">Voltar para a tela inicial</a>
         </div>
-
-        <div id="opcoes">
             
             <% if (result.page > 2) { %>
-                <a href="/product/productslist/page/<%= result.page - 1 %>"> < Anterior</a>
+                <a style="float:left" href="/product/productslist/page/<%= result.page - 1 %>"> < Anterior</a>
             <% } else if (result.page == 2) { %>
-                <a href="/product/productslist"> < Anterior</a>
+                <a style="float:left" href="/product/productslist"> < Anterior</a>
             <% } %>
 
-            <% if (result.next == false) { %>    
-            <a href="/product/productslist/page/<%= result.page + 1%>"> Próxima ></a>
+            <% if (result.next == true) { %>    
+            <a style="float:right" href="/product/productslist/page/<%= result.page + 1%>"> Próxima ></a>
             <% } %>
-        </div>
 
     </div>
 
