@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../../partials/header.ejs') %>
+    <link rel="stylesheet" href="/css/signup.css"
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar conta</title>
+</head>
+<body>
+    
+    <%- include ('../../partials/navbar.ejs') %>
+
+    <div class="container">
+
+        <br>
+        <div class="card">
+
+            <div class="card-header">
+                Cadastro
+            </div>
+
+            <form action="/signup"method="POST">
+
+            <div class="card-body">
+                <input name="email" placeholder="E-mail" class="form-control" required><br>
+                <input name="name" placeholder="Nome" class="form-control" required><br>
+                <input name="password" placeholder="Senha" class="form-control" type="password" required>
+                <hr>
+                
+                <div class="row justify-content-center">
+                    <button class="btn btn-success">Cadastrar</button>
+                  </div>
+                
+                </form>
+
+            </div>
+
+        </form>
+
+        </div>
+
+    </div>
+
+</body>
+    <%- include ('../../partials/footer.ejs') %>
+</html>

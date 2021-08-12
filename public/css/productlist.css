@@ -6,3 +6,8 @@
     display: flex;
     justify-content: space-between;
   }
+
+#titulo {
+    margin: auto;
+    text-align: center;
+}

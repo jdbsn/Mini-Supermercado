@@ -8,10 +8,12 @@
 <body>
 
     <%- include ('../partials/navbar.ejs') %>
-   
-    <h3> Lista de produtos </h3>
 
     <div class="container">
+
+        <hr>
+        <h4 id="titulo"> Produtos </h4>
+        <hr>
 
         <table class="table table-bordered"> 
 
@@ -49,10 +51,9 @@
     
         </table>
     
-
         <div id="opcoes">
-            <a href="/product/create">Cadastrar outro produto</a>
             <a href="/">Voltar para a tela inicial</a>
+            <a href="/product/create">Cadastrar outro produto</a>
         </div>
             
             <% if (result.page > 2) { %>

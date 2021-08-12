@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../../partials/header.ejs')%>
+    <link rel="stylesheet" href="/css/userslist.css">
+    <title>Supermarket</title>
+</head>
+<body>
+
+    <%- include ('../../partials/navbar.ejs') %>
+    
+    <div class="container">
+        <hr>
+            <h4 id="titulo"> Lista de usuários </h4>
+        <hr>
+        <table class="table table-bordered"> 
+
+            <thead>
+    
+                <tr>
+                    <th>Email</th>
+                    <th>Nome</th>
+                </tr>
+    
+            </thead>
+
+            <% users.forEach(users => { %>
+
+                <tr>
+                    <th><%= users.email %></th>
+                    <th><%= users.name %></th>
+                </tr>
+
+            <% }) %>
+    
+        </table>
+    
+            <a href="/admin/index">Voltar para a tela inicial</a>
+
+    </div>
+
+</body>
+    <%- include ('../../partials/footer.ejs') %>
+</html>
+
+    <script>
+        function confirmacao (event, form) {
+            event.preventDefault();
+                var decision = confirm("Confirma?");
+            if (decision) {
+            form.submit();
+            }
+        }
+    </script>

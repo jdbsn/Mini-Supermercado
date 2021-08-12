@@ -44,7 +44,8 @@ router.get('/product/productslist', (req, res) => {
 router.get('/product/:slug', (req, res) => {
     var slug = req.params.slug;
     Product.findOne({
-        where: {slug: slug}
+        where: {slug: slug},
+        include: [{model: Category}]
     }).then(product => {
         if (product != undefined) {
             res.render('product/product', {
@@ -52,22 +53,6 @@ router.get('/product/:slug', (req, res) => {
             }); 
         } else {
             res.redirect('/');
-        }
-    });
-});
-
-router.get('/product/product', (req, res) => {
-    var productID = req.body.id;
-
-    Product.findOne({
-        where: {id: productID}
-    }).then(product => {
-        if (product == undefined) {
-            res.redirect('/');
-        } else {
-            res.render('./product/product', {
-                product: product
-            });
         }
     });
 });

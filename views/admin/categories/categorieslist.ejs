@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include ('../../partials/header.ejs')%>
-    <link rel="stylesheet" href="/css/productlist.css">
+    <link rel="stylesheet" href="/css/categorieslist.css">
     <title>Lista de categorias | Supermarket</title>
 </head>
 <body>
@@ -13,6 +13,10 @@
     <%- include ('../../partials/navbar.ejs') %>
 
     <div class="container"> 
+
+        <hr>
+        <h4 id="titulo"> Categorias </h4>
+        <hr>
 
         <table class="table table-bordered">
     
@@ -43,8 +47,8 @@
 
         </table>
 
-        <a href="/admin/categories/createcategory">Criar categoria</a><br>
         <a href="/">Voltar</a>
+        <a style="float:right" href="/admin/categories/createcategory">Criar categoria</a><br>
 
     </div>
 

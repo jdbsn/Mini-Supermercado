@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
     <%- include ('partials/header.ejs')%>
+    <link rel="stylesheet" href="/css/index.css">
     <title>Supermarket</title>
 </head>
 <body>
     <%- include ('partials/navbar.ejs') %>
-    <h1> Bem vindo a página home! </h1>
-    
-<div class="container">
+
+    <div class="container">
+        <hr>
+        <h2 id="titulo"> Bem vindo a página home! </h2>
+        <hr>    
     
     <table class="table table-bordered">
         <thead>
@@ -24,10 +27,11 @@
         <thead>
             <tr>
                 <th>Categorias</th>
-                <th><a href="/admin/categories/createcategory">Criar categoria</a></th>
                 <th><a href="/admin/categories/categorieslist">Lista de categorias</a></th>
             </tr>
         </thead>
+    </table>
+
     </table>
         
 </div>

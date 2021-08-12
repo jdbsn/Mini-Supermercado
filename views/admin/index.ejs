@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/header.ejs')%>
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Supermarket</title>
+</head>
+<body>
+    <%- include ('../partials/usernavbar.ejs') %>
+
+    <div class="container">
+
+        <hr>
+        <h2 id="titulo"> Página do admin </h2>
+        <hr>    
+    
+        Usuário: <%= user.name %><br> 
+        E-mail: <%= user.email %>
+
+    <hr>   
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Produtos</th>
+                <th><a href="/product/create">Casdastrar Produto</a></th>
+                <th><a href="/product/productslist">Lista de Produtos</a></th>
+            </tr>
+        </thead>
+    </table>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Categorias</th>
+                <th><a href="/admin/categories/createcategory">Criar categoria</a></th>
+                <th><a href="/admin/categories/categorieslist">Lista de categorias</a></th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Usuários</th>
+                <th><a href="/admin/users/list">Lista de usuários</a></th>
+            </tr>
+        </thead>
+    </table>
+        
+</div>
+
+</body>
+    <%- include ('../partials/footer.ejs') %>
+</html>

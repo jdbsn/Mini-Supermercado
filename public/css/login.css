@@ -1,0 +1,8 @@
+#opcoes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    width: 30%;
+}
